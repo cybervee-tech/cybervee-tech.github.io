@@ -1,1 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Portfolio - Your Name</title>
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0d0d0d;
+            color: #ccc;
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Navigation Bar */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0,0,0,0.85);
+            z-index: 1000;
+            box-shadow: 0 0 10px #0ff;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #0ff;
+            text-shadow: 0 0 5px #0ff;
+        }
+        nav ul {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+        nav ul li a {
+            color: #0ff;
+            padding: 0.5rem;
+            transition: 0.3s;
+            text-shadow: 0 0 5px #0ff;
+        }
+        nav ul li a:hover {
+            color: #0f0;
+            text-shadow: 0 0 10px #0f0;
+        }
+
+        /* Hero / Home Section */
+        #home {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 2rem;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+        }
+        #home h1 {
+            font-size: 3rem;
+            color: #0ff;
+            text-shadow: 0 0 10px #0ff;
+            margin-bottom: 1rem;
+        }
+        #home p {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 2rem;
+        }
+        #home .cta-button {
+            padding: 0.8rem 2rem;
+            border: 2px solid #0ff;
+            color: #0ff;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+            text-shadow: 0 0 5px #0ff;
+        }
+        #home .cta-button:hover {
+            background-color: #0ff;
+            color: #0d0d0d;
+            box-shadow: 0 0 20px #0ff;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 2rem 4rem;
+        }
+        section h2 {
+            font-size: 2rem;
+            color: #0ff;
+            text-align: center;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 10px #0ff;
+        }
+
+        /* Profile Section */
+        #profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        #profile img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #0ff;
+            margin-bottom: 1rem;
+            box-shadow: 0 0 15px #0ff;
+        }
+        #profile h3 {
+            font-size: 1.5rem;
+            color: #0ff;
+            margin-bottom: 0.5rem;
+        }
+        #profile h4 {
+            font-size: 1.2rem;
+            color: #0f0;
+            margin-bottom: 1rem;
+        }
+        #profile p {
+            max-width: 600px;
+            color: #ccc;
+        }
+
+        /* About Me Section */
+        #about p {
+            max-width: 800px;
+            margin: 0 auto 1rem;
+            text-align: center;
+            color: #ccc;
+        }
+        #about ul {
+            max-width: 600px;
+            margin: 1rem auto;
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        #about ul li {
+            border: 1px solid #0ff;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            color: #0ff;
+            text-shadow: 0 0 5px #0ff;
+            transition: 0.3s;
+        }
+        #about ul li:hover {
+            box-shadow: 0 0 15px #0ff;
+        }
+
+        /* Skills Section */
+        #skills .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .skill-card {
+            background-color: #111;
+            border: 1px solid #0ff;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .skill-card h3 {
+            color: #0ff;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 5px #0ff;
+        }
+        .skill-card ul {
+            list-style: none;
+            color: #ccc;
+        }
+        .skill-card ul li {
+            margin-bottom: 0.5rem;
+        }
+        .skill-card:hover {
+            box-shadow: 0 0 20px #0ff;
+        }
+
+        /* Projects Section */
+        #projects .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .project-card {
+            background-color: #111;
+            border: 1px solid #0ff;
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: 0.3s;
+        }
+        .project-card h3 {
+            color: #0ff;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 5px #0ff;
+        }
+        .project-card p {
+            color: #ccc;
+            margin-bottom: 0.5rem;
+        }
+        .project-card a {
+            display: inline-block;
+            color: #0ff;
+            border: 1px solid #0ff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 5px;
+            text-shadow: 0 0 5px #0ff;
+            transition: 0.3s;
+        }
+        .project-card a:hover {
+            background-color: #0ff;
+            color: #0d0d0d;
+            box-shadow: 0 0 15px #0ff;
+        }
+
+        /* Certifications Section */
+        #certifications ul {
+            max-width: 600px;
+            margin: 0 auto;
+            list-style: none;
+        }
+        #certifications ul li {
+            border: 1px solid #0ff;
+            border-radius: 5px;
+            padding: 0.8rem 1rem;
+            margin-bottom: 1rem;
+            color: #0ff;
+            text-shadow: 0 0 5px #0ff;
+            transition: 0.3s;
+        }
+        #certifications ul li:hover {
+            box-shadow: 0 0 15px #0ff;
+        }
+
+        /* Contact Section */
+        #contact .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .contact-links a {
+            border: 1px solid #0ff;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            color: #0ff;
+            text-shadow: 0 0 5px #0ff;
+            transition: 0.3s;
+        }
+        .contact-links a:hover {
+            background-color: #0ff;
+            color: #0d0d0d;
+            box-shadow: 0 0 15px #0ff;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #0ff;
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                background-color: rgba(0,0,0,0.95);
+                position: absolute;
+                top: 100%;
+                right: 0;
+                width: 200px;
+                display: none;
+            }
+            nav ul.active {
+                display: flex;
+            }
+            nav .menu-toggle {
+                display: block;
+                cursor: pointer;
+                font-size: 1.5rem;
+                color: #0ff;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+            <div class="logo">Cybervee-tech</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#profile">Profile</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero / Home Section -->
+    <section id="home">
+        <h1>Securing the Digital Frontier</h1>
+        <p>Specializing in SOC Analysis, Penetration Testing, and Threat Hunting</p>
+        <a href="#profile" class="cta-button">View Profile</a>
+    </section>
+
+    <!-- Profile Section -->
+    <section id="profile">
+        <img src="profile.jpg" alt="Profile Photo">
+        <h3>Ezika Ifunanya Vera</h3>
+        <h4>Penetration Tester</h4>
+        <p>Passionate Cybersecurity practitioner with a focus on and hands-on experience in penetration testing and vulnerability assessment. Passionate about securing systems through ethical hacking and continuous learning. Skilled in Network and Web Pentesting, Metasploit, and Burp Suite</p>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I am passionate about cybersecurity, with a particular focus on penetration testing. Having transitioned from a non-technical background, I have built not only a strong theoretical foundation but also practical, hands-on experience in ethical hacking. I am skilled in network and web application testing, vulnerability assessment, and proficient with tools such as Metasploit and Burp Suite.</p>
+        <p>My areas of interest include:</p>
+        <ul>
+            <li>Network and Web application Security</li>
+            <li>Cloud Security</li>
+            <li>Vulnerabilty assessment</li>
+            <li>Risk management</li>
+            <li>Penetration Testing</li>
+        </ul>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Networking & Security Fundamentals</h3>
+                <ul>
+                    <li>TCP/IP, DNS, DHCP</li>
+                    <li>Firewalls & VPNs</li>
+                    <li>SIEM Basics</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>Tools</h3>
+                <ul>
+                    <li>Owasp Zap</li>
+                    <li>SQLmap</li>
+                    <li>Burp Suite</li>
+                    <li>Metasploit</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>Operating Systems</h3>
+                <ul>
+                    <li>Linux</li>
+                    <li>Windows</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>Scripting</h3>
+                <ul>
+                    <li>Python</li>
+                    <li>Bash</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Cloud Security</h3>
+                <p>Deploying a Fully Functional PrestaShop Store on AWS Free Tier with Separate Application and Database Servers.</p>
+                <p>Tools: Aws,mysql</p>
+                <a href="#">GitHub Repo</a>
+            </div>
+            <div class="project-card">
+                <h3>Web Application Penetration Test</h3>
+                <p>Tested and reported vulnerabilities for a web application.</p>
+                <p>Tools: Burp Suite, OWASP ZAP</p>
+                <a href="#">GitHub Repo</a>
+            </div>
+            <div class="project-card">
+                <h3>Threat Hunting Lab</h3>
+                <p>Simulated attack scenarios and developed detection strategies.</p>
+                <p>Tools: Splunk, ELK Stack</p>
+                <a href="#">GitHub Repo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <h2>Certifications</h2>
+        <ul>
+            <li>Certified in cybersecurity ISC2 2025</li>
+            <li>Certificate of completion(Introduction to CyberSecurity) Cisco</li>
+        
+            
+        </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact-links">
+            <a href="ezikaifunanya98@gmail.con">Email</a>
+            <a href="https://github.com/cybervee-tech" target="_blank">GitHub</a>
+            <a href="www.linkedin.com/in/ifunanya-ezika-4a0461342" target="_blank">LinkedIn</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2026 Your Name | Built with HTML & CSS | Cybersecurity Portfolio
+    </footer>
+
+</body>
+</html>
 
